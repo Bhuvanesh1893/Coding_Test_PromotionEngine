@@ -42,8 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IPromotion1.cs" />
+    <Compile Include="IPromotion2.cs" />
+    <Compile Include="Models\BuyTwoSkuForX.cs" />
     <Compile Include="Models\BuyXforY.cs" />
     <Compile Include="Promotion1.cs" />
+    <Compile Include="Promotion2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
