@@ -147,6 +147,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Appplication\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>

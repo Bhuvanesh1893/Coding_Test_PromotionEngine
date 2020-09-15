@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using NUnit.Framework;
 using PromotionEngine_Common.Models;
+using Promotions.Adaptor;
 
 namespace Coding_Test_PromotionEngine.Tests
 {
@@ -15,7 +16,7 @@ namespace Coding_Test_PromotionEngine.Tests
         [Test]
         public void Cal_CartTotal_With_Promo_Test()
         {
-            IPromoCalTotal cal = new PromotionAdaptor();
+            IAdaptor cal = new PromotionsAdaptor();
 
             List<LineItemPrice> input = new List<LineItemPrice>()
             {
