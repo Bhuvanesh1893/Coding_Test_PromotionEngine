@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit;
 using NUnit.Framework;
+using SkuPriceInfo;
 
 namespace Coding_Test_PromotionEngine.Tests
 {
@@ -20,10 +21,11 @@ namespace Coding_Test_PromotionEngine.Tests
                 { "A", 50 }, { "B", 30 }, { "C", 20 }, { "D", 15 }
             };
             Dictionary<string, float> actResult = new Dictionary<string, float>();
-            ISkuPrice skuPr = new SkuPriceAdaptor();
+
+            ISkuPriceInfo skuPr = new SkuPriceInfoAdaptor();
 
             //Act
-            actReult = skuPr.GetSkuPrices();
+            actResult = skuPr.GetSkuPriceInfo();
 
             //Assert
             CollectionAssert.AreEquivalent(expResult, actResult);

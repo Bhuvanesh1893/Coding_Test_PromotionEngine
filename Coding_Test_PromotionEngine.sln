@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coding_Test_PromotionEngine
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromotionEngine_Common", "PromotionEngine_Common\PromotionEngine_Common.csproj", "{8C26925B-CBE8-4692-BC7B-DDA45D2ACAC7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkuPriceInfo", "SkuPriceInfo\SkuPriceInfo.csproj", "{D6485DEA-F06F-4B62-9F8B-E9F53C5161D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{8C26925B-CBE8-4692-BC7B-DDA45D2ACAC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C26925B-CBE8-4692-BC7B-DDA45D2ACAC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C26925B-CBE8-4692-BC7B-DDA45D2ACAC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6485DEA-F06F-4B62-9F8B-E9F53C5161D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6485DEA-F06F-4B62-9F8B-E9F53C5161D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6485DEA-F06F-4B62-9F8B-E9F53C5161D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6485DEA-F06F-4B62-9F8B-E9F53C5161D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
