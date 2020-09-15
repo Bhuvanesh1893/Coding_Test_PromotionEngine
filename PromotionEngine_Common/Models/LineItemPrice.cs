@@ -8,13 +8,67 @@ namespace PromotionEngine_Common.Models
 {
     public class LineItemPrice:IEquatable<LineItemPrice>
     {
-        public string skuId { get; set; }
+        private string _skuId;
+        private int _quantity;
+        private float _skuTotal;
+        public string skuId 
+        {
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    this._skuId = value;
+                }
+                else
+                {
+                    throw new Exception("No skuId");
+                }
+            }
+            get
+            {
+                return this._skuId;
+            }
+        }
 
-        public int quantity { get; set; }
+        public int quantity
+        {
+            set
+            {
+                if (value > 0)
+                {
+                    this._quantity = value;
+                }
+                else
+                {
+                    throw new Exception("Quantity cannot be negative or zero");
+                }
+            }
+            get
+            {
+                return this._quantity;
+            }
+        }
 
         public string promoDesc { get; set; }
 
-        public float skuTotal { get; set; }
+        public float skuTotal
+        {
+            set
+            {
+                if (value >= 0)
+                {
+                    this._skuTotal = value;
+                }
+                else
+                {
+                    throw new Exception("SkuTotal cannot be negative");
+                }
+            }
+            get
+            {
+                return this._skuTotal;
+            }
+        }
 
         public bool Equals(LineItemPrice li)
         {

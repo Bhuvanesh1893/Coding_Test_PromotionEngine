@@ -12,30 +12,30 @@ namespace Promotions
 {
     public class Promotion1 : IPromotion1
     {
-        private List<BuyXforY> confBuyXforY;
-        private Dictionary<string, float> skuPriceInfo;
+        private List<BuyXforY> _confBuyXforY;
+        private Dictionary<string, float> _skuPriceInfo;
 
         public List<LineItemPrice> BuyNSKUUnitsForFixed(List<LineItemPrice> LineItems)
         {
             ReadXmlBuyXforY();
             ISkuPriceInfo skuPrices = new SkuPriceInfoAdaptor();
-            skuPriceInfo = skuPrices.GetSkuPriceInfo();
+            _skuPriceInfo = skuPrices.GetSkuPriceInfo();
 
-            foreach (var i in confBuyXforY)
+            foreach (var i in _confBuyXforY)
             {
                 foreach (var li in LineItems.Where(x => x.promoDesc == string.Empty && x.skuId == i.sku && x.quantity >= i.quantity))
                 {
                     li.promoDesc = "Buy" + i.quantity.ToString() + "For" + i.price.ToString();
-                    li.skuTotal = ((li.quantity / i.quantity) * i.price) + ((li.quantity % i.quantity) * skuPriceInfo[li.skuId]);
+                    li.skuTotal = ((li.quantity / i.quantity) * i.price) + ((li.quantity % i.quantity) * _skuPriceInfo[li.skuId]);
                 }
             }
             return LineItems;
         }
         private void ReadXmlBuyXforY()
         {
-            confBuyXforY = new List<BuyXforY>();
-            confBuyXforY.Add(new BuyXforY { sku = "A", quantity = 3, price = 130 });
-            confBuyXforY.Add(new BuyXforY { sku = "B", quantity = 2, price = 45 });
+            _confBuyXforY = new List<BuyXforY>();
+            _confBuyXforY.Add(new BuyXforY { sku = "A", quantity = 3, price = 130 });
+            _confBuyXforY.Add(new BuyXforY { sku = "B", quantity = 2, price = 45 });
         }
 
     }
