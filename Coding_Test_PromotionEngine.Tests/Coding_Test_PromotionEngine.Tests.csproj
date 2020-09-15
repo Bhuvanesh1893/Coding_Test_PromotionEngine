@@ -103,6 +103,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplyPromoCalTotal_Test.cs" />
     <Compile Include="Promotion1_Test.cs" />
     <Compile Include="Promotion2_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

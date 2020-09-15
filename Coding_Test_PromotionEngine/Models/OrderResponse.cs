@@ -21,6 +21,7 @@ namespace Coding_Test_PromotionEngine.Models
                 promoDesc = "",
                 skuTotal = 0
             });
+            this.cartTotal = 0;
         }
     }
 }
