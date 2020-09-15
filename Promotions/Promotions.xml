@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Promotions>
+<BuyXatY>
+	<Buy>
+		<SkuId>A</SkuId>
+		<Quantity>3</Quantity>
+		<Price>130</Price>
+	</Buy>
+	<Buy>
+		<SkuId>B</SkuId>
+		<Quantity>2</Quantity>
+		<Price>45</Price>
+	</Buy>
+</BuyXatY>
+<BuyTwoSkuAtY>
+	<Buy>
+		<Sku1>C</Sku1>
+		<Sku2>D</Sku2>
+		<Price>30</Price>
+	</Buy>
+</BuyTwoSkuAtY>
+</Promotions>

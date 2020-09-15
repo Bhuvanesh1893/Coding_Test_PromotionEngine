@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using NUnit;
 using NUnit.Framework;
 using PromotionEngine_Common.Models;
+using Promotions;
 
 namespace Coding_Test_PromotionEngine.Tests
 {
@@ -13,7 +14,7 @@ namespace Coding_Test_PromotionEngine.Tests
     public class Promotion1_Test
     {
         [Test]
-        public void Promotion1_Test ()
+        public void Promotion1_Test1()
         {
             List<LineItemPrice> input = new List<LineItemPrice>()
             {
@@ -34,11 +35,9 @@ namespace Coding_Test_PromotionEngine.Tests
             List<LineItemPrice> actResult = new List<LineItemPrice>();
 
             IPromotion1 iPr = new Promotion1();
-            actResult = iPr.BuyXForY();
+            actResult = iPr.BuyNSKUUnitsForFixed(input);
 
             Assert.That(expResult, Is.EqualTo(actResult));
-
-
 
         }
 

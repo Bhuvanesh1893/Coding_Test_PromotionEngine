@@ -22,7 +22,7 @@ namespace PromotionEngine_Common.Models
             {
                 return false;
             }
-            if (skuId == li.skuId && quantity == li.quantity && promoDescription == li.promoDescription && skuTotal == li.skuTotal)
+            if (skuId == li.skuId && quantity == li.quantity && promoDesc == li.promoDesc && skuTotal == li.skuTotal)
             {
                 return true;
             }
