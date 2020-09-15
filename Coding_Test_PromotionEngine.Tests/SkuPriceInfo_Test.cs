@@ -11,23 +11,23 @@ namespace Coding_Test_PromotionEngine.Tests
     [TestFixture]
     public class SkuPriceInfo_Test
     {
-        //[Test]
-        //public void GetSkuPrices()
-        //{
-        //    //Arrange
-        //    Dictionary<string, float> expResult = new Dictionary<string, float>
-        //    {
-        //        { "A", 50 }, { "B", 30 }, { "C", 20 }, { "D", 15 }
-        //    };
-        //    Dictionary<string, float> actResult = new Dictionary<string, float>();
-        //    ISkuPrice skuPr = new SkuPriceAdaptor();
+        [Test]
+        public void GetSkuPrices()
+        {
+            //Arrange
+            Dictionary<string, float> expResult = new Dictionary<string, float>
+            {
+                { "A", 50 }, { "B", 30 }, { "C", 20 }, { "D", 15 }
+            };
+            Dictionary<string, float> actResult = new Dictionary<string, float>();
+            ISkuPrice skuPr = new SkuPriceAdaptor();
 
-        //    //Act
-        //    actReult = skuPr.GetSkuPrices();
+            //Act
+            actReult = skuPr.GetSkuPrices();
 
-        //    //Assert
-        //    CollectionAssert.AreEquivalent(expResult, actResult);
+            //Assert
+            CollectionAssert.AreEquivalent(expResult, actResult);
 
-        //}
+        }
     }
 }
