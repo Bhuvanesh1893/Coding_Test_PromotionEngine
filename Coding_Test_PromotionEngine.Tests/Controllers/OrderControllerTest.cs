@@ -29,7 +29,6 @@ namespace Coding_Test_PromotionEngine.Tests.Controllers
             Assert.IsInstanceOf(typeof(OrderResponse), controller.Post(ordReq));
         }
 
-
         //Test to run with invalid input or no line items
         [Test]
         public void Post_Test2()
@@ -121,6 +120,8 @@ namespace Coding_Test_PromotionEngine.Tests.Controllers
             Assert.That(expOrdResp.CartTotal, Is.EqualTo(actOrdResp.CartTotal));
             Assert.That(expOrdResp.RespMessage, Is.EqualTo(actOrdResp.RespMessage));
         }
+
+        
 
     }
 }
