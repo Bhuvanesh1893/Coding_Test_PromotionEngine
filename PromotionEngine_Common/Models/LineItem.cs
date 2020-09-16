@@ -33,7 +33,7 @@ namespace PromotionEngine_Common.Models
             {
                 if(value>0)
                 {
-                    this.quantity = value;
+                    this._quantity = value;
                 }
                 else
                 {
