@@ -14,7 +14,7 @@ namespace Coding_Test_PromotionEngine.Appplication
         {
             List<string> activeSkus = new List<string>(){ "A", "B", "C", "D" };
             List<string> reqSkus = new List<string>();
-            foreach(var item in ordReq.lineItems)
+            foreach(var item in ordReq.LineItems)
             {
                 reqSkus.Add(item.skuId);
             }

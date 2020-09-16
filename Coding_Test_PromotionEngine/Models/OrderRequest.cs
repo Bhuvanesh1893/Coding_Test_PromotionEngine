@@ -8,7 +8,7 @@ namespace Coding_Test_PromotionEngine.Models
 {
     public class OrderRequest
     {
-        public List<LineItem> lineItems { get; set; }
+        public List<LineItem> LineItems { get; set; }
 
     }
 }

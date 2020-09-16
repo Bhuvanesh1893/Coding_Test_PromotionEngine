@@ -2,14 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Promotions.Adaptor
 {
-    public class PromotionsAdaptor :NonPromoCal, IAdaptor
+    public class PromoPriceCalAdaptor : NonPromoCal, IPromoPriceCal
     {
         public void Run_Promos_Cal_Total(List<LineItemPrice> lineItemPrices, out List<LineItemPrice> upLineItemPrices, out float CartTotal)
         {
@@ -24,7 +22,6 @@ namespace Promotions.Adaptor
                 throw new Exception(ex.Message);
             }
         }
-
         private List<LineItemPrice> ApplyPromotions(List<LineItemPrice> liItemPrices)
         {
             try

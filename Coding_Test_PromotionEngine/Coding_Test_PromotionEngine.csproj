@@ -160,6 +160,10 @@
       <Project>{8c26925b-cbe8-4692-bc7b-dda45d2acac7}</Project>
       <Name>PromotionEngine_Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Promotions\Promotions.csproj">
+      <Project>{2924770a-e4a3-4938-8d7a-56c2c498a7e8}</Project>
+      <Name>Promotions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SkuPriceInfo\SkuPriceInfo.csproj">
       <Project>{d6485dea-f06f-4b62-9f8b-e9f53c5161d7}</Project>
       <Name>SkuPriceInfo</Name>

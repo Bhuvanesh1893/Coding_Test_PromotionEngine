@@ -38,11 +38,11 @@ namespace Coding_Test_PromotionEngine.Tests.Controllers
             OrderController controller = new OrderController();
             OrderRequest ordReq = new OrderRequest();
             OrderResponse expOrdResp = new OrderResponse();
-            expOrdResp.respMessage.StatusCode = 400;
-            expOrdResp.respMessage.StatusMessage = "Invalid Request";
+            expOrdResp.RespMessage.StatusCode = 400;
+            expOrdResp.RespMessage.StatusMessage = "Invalid Request";
 
             //Assert
-            Assert.AreEqual(expOrdResp.respMessage, controller.Post(ordReq).respMessage);
+            Assert.AreEqual(expOrdResp.RespMessage, controller.Post(ordReq).RespMessage);
         }
 
         //Test to run with valid input with invalid skus
@@ -52,19 +52,19 @@ namespace Coding_Test_PromotionEngine.Tests.Controllers
             //Arrange
             OrderController controller = new OrderController();
             OrderRequest ordReq = new OrderRequest();
-            ordReq.lineItems = new List<LineItem>()
+            ordReq.LineItems = new List<LineItem>()
             {
                 new LineItem {skuId = "F", quantity = 2},
                 new LineItem {skuId = "G", quantity = 2}
             };
             OrderResponse expOrdResp = new OrderResponse();
-            expOrdResp.respMessage.StatusCode = 400;
-            expOrdResp.respMessage.StatusMessage = "Invalid Items";
+            expOrdResp.RespMessage.StatusCode = 400;
+            expOrdResp.RespMessage.StatusMessage = "Invalid Items";
 
 
 
             //Assert
-            Assert.AreEqual(expOrdResp.respMessage, controller.Post(ordReq).respMessage);
+            Assert.AreEqual(expOrdResp.RespMessage, controller.Post(ordReq).RespMessage);
         }
 
         //Test to run with valid input with valid skus
@@ -74,19 +74,50 @@ namespace Coding_Test_PromotionEngine.Tests.Controllers
             //Arrange
             OrderController controller = new OrderController();
             OrderRequest ordReq = new OrderRequest();
-            ordReq.lineItems = new List<LineItem>()
+            ordReq.LineItems = new List<LineItem>()
             {
                 new LineItem {skuId = "A", quantity = 2},
                 new LineItem {skuId = "B", quantity = 2}
             };
             OrderResponse expOrdResp = new OrderResponse();
-            expOrdResp.respMessage.StatusCode = 200;
-            expOrdResp.respMessage.StatusMessage = "Success";
-
-
+            expOrdResp.RespMessage.StatusCode = 200;
+            expOrdResp.RespMessage.StatusMessage = "Success";
 
             //Assert
-            Assert.AreEqual(expOrdResp.respMessage, controller.Post(ordReq).respMessage);
+            Assert.AreEqual(expOrdResp.RespMessage, controller.Post(ordReq).RespMessage);
+        }
+
+        //Test to run with valid input with valid skus - Compare cartTotal and Skutotals
+        [Test]
+        public void Post_Test5()
+        {
+            //Arrange
+            OrderController controller = new OrderController();
+            OrderRequest ordReq = new OrderRequest();
+            ordReq.LineItems = new List<LineItem>()
+            {
+                new LineItem {skuId = "A", quantity = 1},
+                new LineItem {skuId = "B", quantity = 1},
+                new LineItem {skuId = "C", quantity = 1},
+                new LineItem {skuId = "D", quantity = 1}
+            };
+
+            OrderResponse expOrdResp = new OrderResponse();
+            expOrdResp.LineItemPrice = new List<LineItemPrice>()
+            {
+                new LineItemPrice { skuId = "A", quantity=1, promoDesc="", skuTotal=50},
+                new LineItemPrice { skuId = "B", quantity=1, promoDesc="", skuTotal=30},
+                new LineItemPrice { skuId = "C", quantity=1, promoDesc="", skuTotal=20},
+                new LineItemPrice { skuId = "D", quantity=1, promoDesc="", skuTotal=15}
+            };
+            expOrdResp.CartTotal = 115;
+            expOrdResp.RespMessage.StatusCode = 200;
+            expOrdResp.RespMessage.StatusMessage = "Success";
+
+            var actOrdResp = controller.Post(ordReq).RespMessage;
+
+            //Assert
+            Assert.AreEqual(expOrdResp, actOrdResp);
         }
 
     }

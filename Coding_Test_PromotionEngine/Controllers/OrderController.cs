@@ -18,10 +18,10 @@ namespace Coding_Test_PromotionEngine.Controllers
             OrderResponse ordRes = new OrderResponse();
             try
             {
-                if (ordReq == null || ordReq.lineItems == null || ordReq.lineItems.Count() == 0)
+                if (ordReq == null || ordReq.LineItems == null || ordReq.LineItems.Count() == 0)
                 {
-                    ordRes.respMessage.StatusCode = Convert.ToInt32(HttpStatusCode.BadRequest);
-                    ordRes.respMessage.StatusMessage = "Invalid Request";
+                    ordRes.RespMessage.StatusCode = Convert.ToInt32(HttpStatusCode.BadRequest);
+                    ordRes.RespMessage.StatusMessage = "Invalid Request";
                     return ordRes;
                 }
                 else
@@ -29,23 +29,27 @@ namespace Coding_Test_PromotionEngine.Controllers
                     SkuCheck skuCheck = new SkuCheck();
                     if (skuCheck.Check_Skus(ordReq))
                     {
-                        ordRes = ordRes.AddLineItems(ordReq);
-                        ordRes.respMessage.StatusCode = Convert.ToInt32(HttpStatusCode.OK);
-                        ordRes.respMessage.StatusMessage = "Success";
+                        CartCal cartCal = new CartCal();
+                        ordRes = cartCal.ProcessLineItems(ordReq);
+                        if(ordRes.RespMessage.StatusCode == 0 && String.IsNullOrEmpty(ordRes.RespMessage.StatusMessage))
+                        {
+                            ordRes.RespMessage.StatusCode = Convert.ToInt32(HttpStatusCode.OK);
+                            ordRes.RespMessage.StatusMessage = "Success";
+                        }
                         return ordRes;
                     }
                     else
                     {
-                        ordRes.respMessage.StatusCode = Convert.ToInt32(HttpStatusCode.BadRequest);
-                        ordRes.respMessage.StatusMessage = "Invalid Items";
+                        ordRes.RespMessage.StatusCode = Convert.ToInt32(HttpStatusCode.BadRequest);
+                        ordRes.RespMessage.StatusMessage = "Invalid Items";
                         return ordRes;
                     }
                 }
             }
             catch(Exception ex)
             {
-                ordRes.respMessage.StatusCode = Convert.ToInt32(HttpStatusCode.BadRequest);
-                ordRes.respMessage.StatusMessage = ex.Message;
+                ordRes.RespMessage.StatusCode = Convert.ToInt32(HttpStatusCode.BadRequest);
+                ordRes.RespMessage.StatusMessage = ex.Message;
                 return ordRes;
             }
         }

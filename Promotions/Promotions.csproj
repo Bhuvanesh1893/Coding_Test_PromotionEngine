@@ -41,8 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adaptor\IAdaptor.cs" />
-    <Compile Include="Adaptor\PromotionsAdaptor.cs" />
+    <Compile Include="Adaptor\IPromoPriceCal.cs" />
+    <Compile Include="Adaptor\PromoPriceCalAdaptor.cs" />
     <Compile Include="IPromotion1.cs" />
     <Compile Include="IPromotion2.cs" />
     <Compile Include="Models\BuyTwoSkuForX.cs" />
