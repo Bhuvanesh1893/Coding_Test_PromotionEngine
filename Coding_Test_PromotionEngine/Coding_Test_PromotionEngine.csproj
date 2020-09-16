@@ -123,6 +123,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appplication\CartCal.cs" />
+    <Compile Include="Appplication\SkuCheck.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -133,6 +135,7 @@
     </Compile>
     <Compile Include="Models\OrderRequest.cs" />
     <Compile Include="Models\OrderResponse.cs" />
+    <Compile Include="Models\ResponseMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -147,7 +150,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Appplication\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +159,10 @@
     <ProjectReference Include="..\PromotionEngine_Common\PromotionEngine_Common.csproj">
       <Project>{8c26925b-cbe8-4692-bc7b-dda45d2acac7}</Project>
       <Name>PromotionEngine_Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SkuPriceInfo\SkuPriceInfo.csproj">
+      <Project>{d6485dea-f06f-4b62-9f8b-e9f53c5161d7}</Project>
+      <Name>SkuPriceInfo</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

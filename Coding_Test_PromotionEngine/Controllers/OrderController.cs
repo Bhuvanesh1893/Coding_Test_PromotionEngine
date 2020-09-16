@@ -1,4 +1,5 @@
-﻿using Coding_Test_PromotionEngine.Models;
+﻿using Coding_Test_PromotionEngine.Appplication;
+using Coding_Test_PromotionEngine.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,25 +13,10 @@ namespace Coding_Test_PromotionEngine.Controllers
     {
 
         // POST api/values
-        public HttpResponseMessage Post([FromBody] OrderRequest ordReq)
+        public OrderResponse Post([FromBody] OrderRequest ordReq)
         {
-            try
-            {
-                if(ordReq==null || ordReq.lineItems == null || ordReq.lineItems.Count()==0)
-                {
-                    return Request.CreateResponse(HttpStatusCode.NotFound, ordReq);
-                }
-                else
-                {
-                    OrderResponse ordRes = new OrderResponse(ordReq);
-                    return Request.CreateResponse(HttpStatusCode.OK, ordRes);
-
-                }
-            }
-            catch(Exception exp)
-            {
-                return Request.CreateResponse(HttpStatusCode.BadRequest, ordReq);
-            }
+            OrderResponse ordRes = new OrderResponse();
+            return ordRes;
         }
     }
 }

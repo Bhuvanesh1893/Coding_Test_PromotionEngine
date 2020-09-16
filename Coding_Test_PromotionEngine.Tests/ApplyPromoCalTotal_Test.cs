@@ -44,7 +44,7 @@ namespace Coding_Test_PromotionEngine.Tests
 
         }
 
-        [Test]
+        //[Test]
         //public void Cal_CartTotal_With_Promo_Test2()
         //{
         //    IAdaptor cal = new PromotionsAdaptor();
