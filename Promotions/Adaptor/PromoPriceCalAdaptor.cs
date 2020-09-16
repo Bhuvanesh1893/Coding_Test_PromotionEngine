@@ -9,6 +9,11 @@ namespace Promotions.Adaptor
 {
     public class PromoPriceCalAdaptor : NonPromoCal, IPromoPriceCal
     {
+        /* Inherits NonPromoCal(base class) and Interface IPromoPriceCal
+         * Implements IPromoPriceCal interface to calculate carttotal after promotions are applied
+         * Acts as a wrapper class for base class methods inside the interface implementation
+         * Acts as an adaptor for the Promotions
+         */
         public void Run_Promos_Cal_Total(List<LineItemPrice> lineItemPrices, out List<LineItemPrice> upLineItemPrices, out float CartTotal)
         {
             try

@@ -8,6 +8,7 @@ namespace SkuPriceInfo
 {
     public interface ISkuPriceInfo
     {
+        //Functions exposed to the consumer
         Dictionary<string, float> GetSkuPriceInfo();
     }
 }

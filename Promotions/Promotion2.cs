@@ -14,6 +14,7 @@ namespace Promotions
         private List<BuyTwoSkuForX> _confBuyTwoForX;
         private Dictionary<string, float> _skuPriceInfo;
 
+        //Configurable parameters for the promotion - Can configure for any two skus for any fixed price
         private void ReadXmlBuyTwoSkuforY()
         {
             try 
@@ -27,6 +28,7 @@ namespace Promotions
             }
         }
 
+        //Promotion Logic - Buy 2 different skus for a fixed price
         public List<LineItemPrice> BuyTwoSKUForFixed(List<LineItemPrice> listItems)
         {
             try 

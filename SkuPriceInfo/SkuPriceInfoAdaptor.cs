@@ -8,6 +8,10 @@ namespace SkuPriceInfo
 {
     public class SkuPriceInfoAdaptor : SkuPriceInfo, ISkuPriceInfo
     {
+        /* Inherits SkuPriceInfo(base class) and Interface ISkuPriceInfo
+         * Implements ISkuPriceInfo interface
+         * Acts as a wrapper class for base class methods inside the interface implementation
+         */
         public Dictionary<string, float> GetSkuPriceInfo()
         {
             try

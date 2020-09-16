@@ -9,8 +9,12 @@ using Promotions.Adaptor;
 
 namespace Coding_Test_PromotionEngine.Appplication
 {
-    public class CartCal
+    public class CartCal : ICartCal
     {
+        /* Link between the API and the other projects
+         * Uses the IPromoPriceCal interface and PromoPriceCalAdaptor to calculate the sku total and the cart total
+         * Assigns the info to the OrderResponse object
+         */
         public OrderResponse ProcessLineItems(OrderRequest ordReq)
         {
             OrderResponse ordRes = new OrderResponse();
@@ -18,7 +22,7 @@ namespace Coding_Test_PromotionEngine.Appplication
             ordRes = CalculateCartSkuTotal(ordRes);
 
             return ordRes;
-        } 
+        }
 
         private OrderResponse AddLineItems(OrderRequest req)
         {
@@ -35,7 +39,7 @@ namespace Coding_Test_PromotionEngine.Appplication
                 ordRes.CartTotal = 0;
                 return ordRes;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -55,7 +59,7 @@ namespace Coding_Test_PromotionEngine.Appplication
                 oRes.CartTotal = cartTotal;
                 return oRes;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 oRes.RespMessage.StatusCode = 400;
                 oRes.RespMessage.StatusMessage = ex.Message;

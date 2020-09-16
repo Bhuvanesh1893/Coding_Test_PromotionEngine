@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appplication\CartCal.cs" />
+    <Compile Include="Appplication\ICartCal.cs" />
     <Compile Include="Appplication\SkuCheck.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />

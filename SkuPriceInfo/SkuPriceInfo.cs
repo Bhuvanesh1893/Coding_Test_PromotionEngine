@@ -10,6 +10,7 @@ namespace SkuPriceInfo
     {
         private Dictionary<string, float> skuPriceInfo = new Dictionary<string, float>();
 
+        //Base class method to get the SKU Price info - DB related code can be written
         public virtual Dictionary<string, float> GetSkuPriceInfoDetails()
         {
             try

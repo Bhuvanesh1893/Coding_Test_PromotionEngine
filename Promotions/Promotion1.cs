@@ -15,6 +15,7 @@ namespace Promotions
         private List<BuyXforY> _confBuyXforY;
         private Dictionary<string, float> _skuPriceInfo;
 
+        //Promotion Logic - Buy "N" items of a SKU for a fixed price
         public List<LineItemPrice> BuyNSKUUnitsForFixed(List<LineItemPrice> LineItems)
         {
             try
@@ -38,6 +39,8 @@ namespace Promotions
                 throw new Exception(ex.Message);
             }
         }
+
+        //Configurable parameters for the promotions - Can configure for any skus and any quantity
         private void ReadXmlBuyXforY()
         {
             try

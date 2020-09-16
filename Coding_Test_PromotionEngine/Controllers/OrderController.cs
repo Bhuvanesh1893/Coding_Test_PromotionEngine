@@ -15,7 +15,7 @@ namespace Coding_Test_PromotionEngine.Controllers
         // POST api/values
         public OrderResponse Post([FromBody] OrderRequest ordReq)
         {
-            OrderResponse ordRes = new OrderResponse();
+            OrderResponse ordRes = FactoryGetOrderResponse();
             try
             {
                 if (ordReq == null || ordReq.LineItems == null || ordReq.LineItems.Count() == 0)
@@ -26,10 +26,10 @@ namespace Coding_Test_PromotionEngine.Controllers
                 }
                 else
                 {
-                    SkuCheck skuCheck = new SkuCheck();
+                    SkuCheck skuCheck = FactoryGetSkuCheck();
                     if (skuCheck.Check_Skus(ordReq))
                     {
-                        CartCal cartCal = new CartCal();
+                        ICartCal cartCal = FactoryGetCartCal();
                         ordRes = cartCal.ProcessLineItems(ordReq);
                         if(ordRes.RespMessage.StatusCode == 0 && String.IsNullOrEmpty(ordRes.RespMessage.StatusMessage))
                         {
@@ -53,5 +53,22 @@ namespace Coding_Test_PromotionEngine.Controllers
                 return ordRes;
             }
         }
+
+        private OrderResponse FactoryGetOrderResponse()
+        {
+            OrderResponse ordRes = new OrderResponse();
+            return ordRes;
+        }
+        private CartCal FactoryGetCartCal()
+        {
+            CartCal cartCal = new CartCal();
+            return cartCal;
+        }
+        private SkuCheck FactoryGetSkuCheck()
+        {
+            SkuCheck skuCheck = new SkuCheck();
+            return skuCheck;
+        }
+
     }
 }
