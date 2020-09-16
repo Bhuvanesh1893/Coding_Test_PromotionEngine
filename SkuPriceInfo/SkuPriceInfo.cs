@@ -12,12 +12,19 @@ namespace SkuPriceInfo
 
         public virtual Dictionary<string, float> GetSkuPriceInfoDetails()
         {
-            skuPriceInfo.Add("A", 50);
-            skuPriceInfo.Add("B", 30);
-            skuPriceInfo.Add("C", 20);
-            skuPriceInfo.Add("D", 15);
+            try
+            {
+                skuPriceInfo.Add("A", 50);
+                skuPriceInfo.Add("B", 30);
+                skuPriceInfo.Add("C", 20);
+                skuPriceInfo.Add("D", 15);
 
-            return skuPriceInfo;
+                return skuPriceInfo;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

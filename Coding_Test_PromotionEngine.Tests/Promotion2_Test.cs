@@ -17,7 +17,7 @@ namespace Coding_Test_PromotionEngine.Tests
         [TestCase(2, 2, 0, 60)]
         [TestCase(3,2,20,60)]
         [TestCase(2, 3, 0, 75)]
-        public void Promotion2_Test3(int a , int b, float c, float d)
+        public void Promotion2_Test1(int a , int b, float c, float d)
         {
             List<LineItemPrice> input = new List<LineItemPrice>()
             {
@@ -41,6 +41,36 @@ namespace Coding_Test_PromotionEngine.Tests
             actResult = iPr.BuyTwoSKUForFixed(input);
 
             Assert.That(expResult, Is.EqualTo(actResult));
+        }
+
+
+        //TestCase with SkuId E not in list-Promotion does not apply
+        [Test]
+        public void Promotion2_Test2()
+        {
+            List<LineItemPrice> input = new List<LineItemPrice>()
+            {
+                new LineItemPrice{skuId="E", quantity=5, promoDesc="", skuTotal=0},
+                new LineItemPrice{skuId="B", quantity=4, promoDesc="", skuTotal=0},
+                new LineItemPrice{skuId="C", quantity=1, promoDesc="", skuTotal=0},
+                new LineItemPrice{skuId="D", quantity=1, promoDesc="", skuTotal=0},
+            };
+
+            List<LineItemPrice> expResult = new List<LineItemPrice>()
+            {
+                new LineItemPrice{skuId="E", quantity=5, promoDesc="", skuTotal=0},
+                new LineItemPrice{skuId="B", quantity=4, promoDesc="", skuTotal=0},
+                new LineItemPrice{skuId="C", quantity=1, promoDesc="Buy2SKUfor30", skuTotal=0},
+                new LineItemPrice{skuId="D", quantity=1, promoDesc="Buy2SKUfor30", skuTotal=30},
+            };
+
+            List<LineItemPrice> actResult = new List<LineItemPrice>();
+
+            IPromotion2 iPr = new Promotion2();
+            actResult = iPr.BuyTwoSKUForFixed(input);
+
+            Assert.That(expResult, Is.EqualTo(actResult));
+
         }
 
 

@@ -74,7 +74,36 @@ namespace Coding_Test_PromotionEngine.Tests
 
         }
 
-        
+        //TestCase with SkuId E not in list-Promotion does not apply
+        [Test]
+        public void Promotion1_Test3()
+        {
+            List<LineItemPrice> input = new List<LineItemPrice>()
+            {
+                new LineItemPrice{skuId="A", quantity=5, promoDesc="", skuTotal=0},
+                new LineItemPrice{skuId="B", quantity=4, promoDesc="", skuTotal=0},
+                new LineItemPrice{skuId="E", quantity=3, promoDesc="", skuTotal=0},
+                new LineItemPrice{skuId="D", quantity=2, promoDesc="", skuTotal=0},
+            };
+
+            List<LineItemPrice> expResult = new List<LineItemPrice>()
+            {
+                new LineItemPrice{skuId="A", quantity=5, promoDesc="Buy3For130", skuTotal=230},
+                new LineItemPrice{skuId="B", quantity=4, promoDesc="Buy2For45", skuTotal=90},
+                new LineItemPrice{skuId="E", quantity=3, promoDesc="", skuTotal=0},
+                new LineItemPrice{skuId="D", quantity=2, promoDesc="", skuTotal=0},
+            };
+
+            List<LineItemPrice> actResult = new List<LineItemPrice>();
+
+            IPromotion1 iPr = new Promotion1();
+            actResult = iPr.BuyNSKUUnitsForFixed(input);
+
+            Assert.That(expResult, Is.EqualTo(actResult));
+
+        }
+
+
 
     }
 }

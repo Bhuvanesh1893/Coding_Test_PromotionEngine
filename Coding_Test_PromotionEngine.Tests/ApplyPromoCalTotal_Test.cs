@@ -43,5 +43,36 @@ namespace Coding_Test_PromotionEngine.Tests
             Assert.AreEqual(actCartTotal, expCartTotal);
 
         }
+
+        [Test]
+        //public void Cal_CartTotal_With_Promo_Test2()
+        //{
+        //    IAdaptor cal = new PromotionsAdaptor();
+
+        //    List<LineItemPrice> input = new List<LineItemPrice>()
+        //    {
+        //        new LineItemPrice{skuId="E", quantity=3, promoDesc="", skuTotal=0},
+        //        new LineItemPrice{skuId="F", quantity=2, promoDesc="", skuTotal=0},
+        //        new LineItemPrice{skuId="G", quantity=1, promoDesc="", skuTotal=0},
+        //        new LineItemPrice{skuId="D", quantity=1, promoDesc="", skuTotal=0},
+        //    };
+        //    List<LineItemPrice> expResult = new List<LineItemPrice>()
+        //    {
+        //        new LineItemPrice{skuId="E", quantity=3, promoDesc="", skuTotal=0},
+        //        new LineItemPrice{skuId="F", quantity=2, promoDesc="", skuTotal=0},
+        //        new LineItemPrice{skuId="G", quantity=1, promoDesc="", skuTotal=0},
+        //        new LineItemPrice{skuId="D", quantity=1, promoDesc="", skuTotal=15},
+        //    };
+        //    List<LineItemPrice> actResult = new List<LineItemPrice>();
+
+        //    float actCartTotal;
+        //    float expCartTotal = 15;
+
+        //    cal.Run_Promos_Cal_Total(input, out actResult, out actCartTotal);
+
+        //    Assert.That(expResult, Is.EqualTo(actResult));
+        //    Assert.AreEqual(actCartTotal, expCartTotal);
+
+        //}
     }
 }

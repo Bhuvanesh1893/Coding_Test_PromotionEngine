@@ -13,24 +13,37 @@ namespace Promotions
         private Dictionary<string, float> _skuPriceInfo = new Dictionary<string, float>();
         public virtual List<LineItemPrice> CalNonPromoSkuTotal(List<LineItemPrice> lineItemPrices)
         {
-            ISkuPriceInfo skuPr = new SkuPriceInfoAdaptor();
-            _skuPriceInfo = skuPr.GetSkuPriceInfo();
-            foreach(var li in lineItemPrices.Where(x=>x.promoDesc==""))
-            {
-                li.skuTotal = li.quantity * _skuPriceInfo[li.skuId];
+            try 
+            { 
+                ISkuPriceInfo skuPr = new SkuPriceInfoAdaptor();
+                _skuPriceInfo = skuPr.GetSkuPriceInfo();
+                foreach(var li in lineItemPrices.Where(x=>x.promoDesc==""))
+                {
+                    li.skuTotal = li.quantity * _skuPriceInfo[li.skuId];
+                }
+                return lineItemPrices;
             }
-            return lineItemPrices;
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public virtual float CalCartTotal(List<LineItemPrice> lineItemPrices)
         {
-            float cartTotal = 0F;
-
-            foreach(var item in lineItemPrices)
+            try { 
+                float cartTotal = 0F;
+                foreach(var item in lineItemPrices)
             {
                 cartTotal += item.skuTotal;
             }
-            return cartTotal;
+                return cartTotal;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
         }
     }
 }

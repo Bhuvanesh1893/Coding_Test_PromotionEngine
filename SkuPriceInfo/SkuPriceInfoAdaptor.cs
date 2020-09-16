@@ -10,12 +10,26 @@ namespace SkuPriceInfo
     {
         public Dictionary<string, float> GetSkuPriceInfo()
         {
-            return GetSkuPriceInfoDetails();
+            try
+            {
+                return GetSkuPriceInfoDetails();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public override Dictionary<string, float> GetSkuPriceInfoDetails()
         {
-            return base.GetSkuPriceInfoDetails();
+            try
+            {
+                return base.GetSkuPriceInfoDetails();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
