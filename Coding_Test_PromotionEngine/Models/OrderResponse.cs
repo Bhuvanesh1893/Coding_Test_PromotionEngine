@@ -20,5 +20,18 @@ namespace Coding_Test_PromotionEngine.Models
             this.CartTotal = 0F;
             this.RespMessage = new ResponseMessage();
         }
+
+        public bool Equals(OrderResponse ordRes)
+        {
+            if (CartTotal == ordRes.CartTotal && RespMessage.StatusCode == ordRes.RespMessage.StatusCode 
+                && RespMessage.StatusMessage == ordRes.RespMessage.StatusMessage)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

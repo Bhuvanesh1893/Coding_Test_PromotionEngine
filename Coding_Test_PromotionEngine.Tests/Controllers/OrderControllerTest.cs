@@ -107,17 +107,19 @@ namespace Coding_Test_PromotionEngine.Tests.Controllers
             {
                 new LineItemPrice { skuId = "A", quantity=1, promoDesc="", skuTotal=50},
                 new LineItemPrice { skuId = "B", quantity=1, promoDesc="", skuTotal=30},
-                new LineItemPrice { skuId = "C", quantity=1, promoDesc="", skuTotal=20},
-                new LineItemPrice { skuId = "D", quantity=1, promoDesc="", skuTotal=15}
+                new LineItemPrice { skuId = "C", quantity=1, promoDesc="Buy2SKUfor30", skuTotal=0},
+                new LineItemPrice { skuId = "D", quantity=1, promoDesc="Buy2SKUfor30", skuTotal=30}
             };
-            expOrdResp.CartTotal = 115;
+            expOrdResp.CartTotal = 110;
             expOrdResp.RespMessage.StatusCode = 200;
             expOrdResp.RespMessage.StatusMessage = "Success";
 
-            var actOrdResp = controller.Post(ordReq).RespMessage;
+            OrderResponse actOrdResp = controller.Post(ordReq);
 
             //Assert
-            Assert.AreEqual(expOrdResp, actOrdResp);
+            Assert.That(expOrdResp.LineItemPrice, Is.EqualTo(actOrdResp.LineItemPrice));
+            Assert.That(expOrdResp.CartTotal, Is.EqualTo(actOrdResp.CartTotal));
+            Assert.That(expOrdResp.RespMessage, Is.EqualTo(actOrdResp.RespMessage));
         }
 
     }
